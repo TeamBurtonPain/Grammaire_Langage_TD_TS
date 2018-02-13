@@ -125,6 +125,7 @@
     <ClCompile Include="State4.cpp" />
     <ClCompile Include="State7.cpp" />
     <ClCompile Include="State9.cpp" />
+    <ClCompile Include="StateError.cpp" />
     <ClCompile Include="symbole.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +142,7 @@
     <ClInclude Include="State4.h" />
     <ClInclude Include="State7.h" />
     <ClInclude Include="State9.h" />
+    <ClInclude Include="StateError.h" />
     <ClInclude Include="symbole.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
