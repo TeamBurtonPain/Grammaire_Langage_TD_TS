@@ -111,12 +111,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Automate.cpp" />
     <ClCompile Include="lexer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="State.cpp" />
     <ClCompile Include="symbole.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Automate.h" />
     <ClInclude Include="lexer.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="symbole.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
