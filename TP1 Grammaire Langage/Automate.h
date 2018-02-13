@@ -11,7 +11,7 @@ class Automate
 {
 public:
 
-	Automate() 
+	Automate() : termine(false)
 	{
 		state_stack.push_back(new State0);
 	}
@@ -19,19 +19,12 @@ public:
 
 	Symbole * popSymbole();
 
-	void move(Symbole * s)
-	{
-		State * st = state_stack.back();
-		st->transition(*this, s);
-	}
+	bool move(Symbole * s);
 
 	void putSymbole(Symbole * s);
 
-	void popAndDestroySymbole()
-	{
-		symbol_stack.pop_back();
-		return;
-	}
+	void popAndDestroySymbole();
+
 
 	void decalage(Symbole * s, State * st);
 
@@ -39,7 +32,12 @@ public:
 
 	void accepter();
 
+	operator bool() const { return termine; }
+
+	void abort() { termine = true; }
+
 protected:
 	deque<Symbole* > symbol_stack;
 	deque<State* > state_stack;
+	bool termine;
 };

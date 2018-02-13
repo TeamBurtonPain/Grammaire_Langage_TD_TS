@@ -37,7 +37,7 @@ public:
 	~Entier()
 	{
 	}
-
+	virtual int eval() { return valeur; }
 	virtual void Affiche();
 protected:
 	int valeur;
@@ -46,7 +46,8 @@ protected:
 class Expr : public Symbole
 {
 public:
-	Expr() : Symbole(EXPR){	}
+	Expr(int val) : Symbole(EXPR), valeur(val){}
+	Expr() : Symbole(EXPR){}
 	virtual ~Expr(){}
 
 	virtual int eval() { return valeur; }

@@ -4,20 +4,27 @@
 
 
 int main(void) {
-   string chaine("(1+34)*123");
+   string chaine;
+   for(;;)
+   {
+	   std::getline(cin, chaine);
+	   Lexer l(chaine);
+	   Automate automate;
 
-   Lexer l(chaine);
-   Automate automate;
-
-   Symbole * s;
-   while(*(s=l.Consulter())!=FIN) {
-      s->Affiche();
-	  automate.move(s);
-      cout<<endl;
-      l.Avancer();
+	   Symbole * s;
+	   while (!automate) {
+		   s = l.Consulter();
+		   s->Affiche();
+		   cout << endl;
+		   bool continuer = true;
+		   while (continuer) {
+			   continuer = automate.move(s);
+		   }
+		   l.Avancer();
+	   }
+	   
    }
-
-   cin.get();
+ 
    return 0;
 }
 

@@ -14,8 +14,14 @@ bool State7::transition(Automate & automate, Symbole * symbole)
 	case PLUS:
 	case CLOSEPAR:
 	case FIN:
-		automate.reduction(3, new Symbole(7));
-		break;
+		{
+			Expr * s1 = (Expr *)automate.popSymbole();
+			automate.popAndDestroySymbole();
+			Expr * s2 = (Expr *)automate.popSymbole();
+			automate.reduction(3, new ExprPlus(s1, s2));
+			return true;
+			break;
+		}
 	case MULT:
 		automate.decalage(symbole, new State5);
 		break;

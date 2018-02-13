@@ -20,11 +20,11 @@ bool State9::transition(Automate & automate, Symbole * symbole)
 	case FIN:
 	case MULT:
 	{
-		automate.putSymbole(symbole);
 		automate.popAndDestroySymbole();
 		Expr * s1 = (Expr *) automate.popSymbole();
 		automate.popAndDestroySymbole();
 		automate.reduction(3, new ExprPar(s1));
+		return true;
 		break;
 	}
 	default:

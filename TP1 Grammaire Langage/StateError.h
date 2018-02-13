@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "State.h"
+#include "Automate.h"
 
 class StateError : public State
 {

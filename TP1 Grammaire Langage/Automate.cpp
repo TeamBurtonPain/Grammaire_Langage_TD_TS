@@ -14,9 +14,21 @@ Symbole* Automate::popSymbole()
 	return s;
 }
 
+bool Automate::move(Symbole* s)
+{
+	State * st = state_stack.back();
+	return st->transition(*this, s);
+}
+
 void Automate::putSymbole(Symbole * s)
 {
 	symbol_stack.push_back(s);
+}
+
+void Automate::popAndDestroySymbole()
+{
+	symbol_stack.pop_back();
+	return;
 }
 
 void Automate::decalage(Symbole* s, State* st)
@@ -38,5 +50,6 @@ void Automate::reduction(int n, Symbole* s)
 
 void Automate::accepter()
 {
+	termine = true;
 	cout << "Expression analysée : valeur = " << ((Expr *)symbol_stack.back())->eval() << endl;
 }

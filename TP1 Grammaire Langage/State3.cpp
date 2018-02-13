@@ -13,8 +13,12 @@ bool State3::transition(Automate& automate, Symbole* symbole)
 	case MULT:
 	case CLOSEPAR:
 	case FIN:
-		automate.reduction(1, new Symbole(7));
-		break;
+		{
+			Entier * s = (Entier *) automate.popSymbole();
+			automate.reduction(1, new Expr(s->eval()));
+			return true;
+			break;
+		}
 	default:
 		automate.decalage(symbole, new StateError);
 	}
