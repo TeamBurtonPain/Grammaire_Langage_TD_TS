@@ -1,4 +1,8 @@
 #include "State6.h"
+#include "State4.h"
+#include "State5.h"
+#include "State9.h"
+#include "StateError.h"
 
 State6::~State6()
 {

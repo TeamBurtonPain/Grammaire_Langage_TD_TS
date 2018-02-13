@@ -1,4 +1,5 @@
 #include "State8.h"
+#include "StateError.h"
 
 State8::~State8()
 {

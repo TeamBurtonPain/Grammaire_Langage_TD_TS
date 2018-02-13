@@ -1,7 +1,6 @@
 #pragma once
 #include "State.h"
-#include "State5.h"
-#include "StateError.h"
+
 
 class State7 : public State
 {

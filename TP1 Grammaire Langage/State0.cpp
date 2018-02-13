@@ -1,5 +1,8 @@
 #include "State0.h"
-
+#include "State1.h"
+#include "State2.h"
+#include "State3.h"
+#include "StateError.h"
 
 State0::~State0()
 {

@@ -1,4 +1,5 @@
 #include "State9.h"
+#include "StateError.h"
 
 
 
@@ -21,7 +22,7 @@ bool State9::transition(Automate & automate, Symbole * symbole)
 		automate.reduction(3, new Symbole(7));
 		break;
 	default:
-		automate.decalage(symbole, new StateError)
+		automate.decalage(symbole, new StateError);
 	}
 	return false;
 }

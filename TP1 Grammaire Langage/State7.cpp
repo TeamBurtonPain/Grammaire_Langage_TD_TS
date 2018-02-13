@@ -1,10 +1,7 @@
 #include "State7.h"
+#include "State5.h"
+#include "StateError.h"
 
-
-
-State7::State7()
-{
-}
 
 
 State7::~State7()
@@ -23,7 +20,7 @@ bool State7::transition(Automate & automate, Symbole * symbole)
 		automate.decalage(symbole, new State5);
 		break;
 	default:
-		automate.decalage(symbole, new StateError)
+		automate.decalage(symbole, new StateError);
 	}
 	return false;
 }
