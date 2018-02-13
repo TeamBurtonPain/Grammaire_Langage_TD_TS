@@ -115,12 +115,14 @@
     <ClCompile Include="lexer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="State.cpp" />
+    <ClCompile Include="State0.cpp" />
     <ClCompile Include="symbole.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Automate.h" />
     <ClInclude Include="lexer.h" />
     <ClInclude Include="State.h" />
+    <ClInclude Include="State0.h" />
     <ClInclude Include="symbole.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -9,8 +9,15 @@ class Automate
 {
 public:
 
-	Automate();
+	Automate()
+	{
+		state_stack//.push();
+	}
 	~Automate();
+
+	void decalage(Symbole * s, State * st);
+
+	void reduction(int n, Symbole * s);
 
 protected:
 	stack<Symbole> symbol_stack;
