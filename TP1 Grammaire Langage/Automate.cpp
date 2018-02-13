@@ -1,6 +1,7 @@
 #include "Automate.h"
+#include <iostream>
 
-
+using namespace std;
 
 Automate::~Automate()
 {
@@ -11,6 +12,11 @@ Symbole* Automate::popSymbole()
 	Symbole * s = symbol_stack.back();
 	symbol_stack.pop_back();
 	return s;
+}
+
+void Automate::putSymbole(Symbole * s)
+{
+	symbol_stack.push_back(s);
 }
 
 void Automate::decalage(Symbole* s, State* st)
@@ -27,9 +33,10 @@ void Automate::reduction(int n, Symbole* s)
 		state_stack.pop_back();
 		
 	}
-	
+	state_stack.back()->transition(*this, s);
 }
 
 void Automate::accepter()
 {
+	cout << "Expression analysée : valeur = " << ((Expr *)symbol_stack.back())->eval() << endl;
 }

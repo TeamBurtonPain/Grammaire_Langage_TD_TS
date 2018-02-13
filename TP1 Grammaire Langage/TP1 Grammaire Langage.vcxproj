@@ -42,14 +42,14 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -82,6 +82,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\douzo\INSA\4IF\Grammaire et Langages\TP1 Grammaire Langage\TP1 Grammaire Langage</AdditionalIncludeDirectories>
+      <AdditionalOptions>/std:c++11 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -104,6 +106,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\douzo\INSA\4IF\Grammaire et Langages\TP1 Grammaire Langage\TP1 Grammaire Langage</AdditionalIncludeDirectories>
+      <AdditionalOptions>/std:c++11 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -116,14 +120,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="State0.cpp" />
+    <ClCompile Include="State1.cpp" />
     <ClCompile Include="State2.cpp" />
     <ClCompile Include="State3.cpp" />
+    <ClCompile Include="State4.cpp" />
     <ClCompile Include="State5.cpp" />
     <ClCompile Include="State6.cpp" />
-    <ClCompile Include="State8.cpp" />
-    <ClCompile Include="State1.cpp" />
-    <ClCompile Include="State4.cpp" />
     <ClCompile Include="State7.cpp" />
+    <ClCompile Include="State8.cpp" />
     <ClCompile Include="State9.cpp" />
     <ClCompile Include="StateError.cpp" />
     <ClCompile Include="symbole.cpp" />
@@ -133,14 +137,14 @@
     <ClInclude Include="lexer.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="State0.h" />
+    <ClInclude Include="State1.h" />
     <ClInclude Include="State2.h" />
     <ClInclude Include="State3.h" />
+    <ClInclude Include="State4.h" />
     <ClInclude Include="State5.h" />
     <ClInclude Include="State6.h" />
-    <ClInclude Include="State8.h" />
-    <ClInclude Include="State1.h" />
-    <ClInclude Include="State4.h" />
     <ClInclude Include="State7.h" />
+    <ClInclude Include="State8.h" />
     <ClInclude Include="State9.h" />
     <ClInclude Include="StateError.h" />
     <ClInclude Include="symbole.h" />

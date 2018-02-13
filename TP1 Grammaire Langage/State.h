@@ -1,7 +1,6 @@
 #pragma once
-#include "Automate.h"
 #include "symbole.h"
-
+class Automate;
 class State
 {
 public:

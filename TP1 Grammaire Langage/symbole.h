@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include <string>
 #include <map>
 using namespace std;
@@ -46,22 +47,39 @@ class Expr : public Symbole
 {
 public:
 	Expr() : Symbole(EXPR){	}
-	virtual ~Expr();
+	virtual ~Expr(){}
 
-	virtual double eval(const map<string, double> & valeur) = 0;
+	virtual int eval() { return valeur; }
+
+protected:
+	int valeur;
 };
 
 class ExprPlus : public Expr
 {
 public :
-	ExprPlus(Expr * s1, Expr * s2);
-
+	ExprPlus(Expr * s1, Expr * s2)
+	{
+		valeur = s1->eval() + s2->eval();
+	}
 };
 
 class ExprMult : public Expr
 {
 public:
-	ExprMult(Expr * s1, Expr * s2);
+	ExprMult(Expr * s1, Expr * s2)
+	{
+		valeur = s1->eval() * s2->eval();
+	}
 
 };
 
+class ExprPar : public Expr
+{
+public:
+	ExprPar(Expr * s1)
+	{
+		valeur = s1->eval();
+	}
+
+};

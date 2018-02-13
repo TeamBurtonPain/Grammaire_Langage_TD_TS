@@ -3,6 +3,7 @@
 #include "symbole.h"
 #include "State.h"
 #include "State0.h"
+#include "lexer.h"
 
 using namespace std;
 
@@ -10,13 +11,21 @@ class Automate
 {
 public:
 
-	Automate()
+	Automate() 
 	{
 		state_stack.push_back(new State0);
 	}
 	~Automate();
 
 	Symbole * popSymbole();
+
+	void move(Symbole * s)
+	{
+		State * st = state_stack.back();
+		st->transition(*this, s);
+	}
+
+	void putSymbole(Symbole * s);
 
 	void popAndDestroySymbole()
 	{
@@ -31,8 +40,6 @@ public:
 	void accepter();
 
 protected:
-	deque<Symbole*> symbol_stack;
-	deque<State*> state_stack;
-
+	deque<Symbole* > symbol_stack;
+	deque<State* > state_stack;
 };
-

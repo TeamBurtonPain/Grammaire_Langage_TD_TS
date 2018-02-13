@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include <string>
 #include "symbole.h"
 using namespace std;
@@ -12,7 +13,6 @@ class Lexer {
 
       Symbole * Consulter();
       void Avancer();
-	  void putSymbol(Symbole * s);
 
    protected:
       string flux;
