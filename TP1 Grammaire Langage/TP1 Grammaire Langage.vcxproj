@@ -116,6 +116,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="State0.cpp" />
+    <ClCompile Include="State2.cpp" />
+    <ClCompile Include="State3.cpp" />
+    <ClCompile Include="State5.cpp" />
+    <ClCompile Include="State6.cpp" />
+    <ClCompile Include="State8.cpp" />
     <ClCompile Include="State1.cpp" />
     <ClCompile Include="State4.cpp" />
     <ClCompile Include="State7.cpp" />
@@ -127,6 +132,11 @@
     <ClInclude Include="lexer.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="State0.h" />
+    <ClInclude Include="State2.h" />
+    <ClInclude Include="State3.h" />
+    <ClInclude Include="State5.h" />
+    <ClInclude Include="State6.h" />
+    <ClInclude Include="State8.h" />
     <ClInclude Include="State1.h" />
     <ClInclude Include="State4.h" />
     <ClInclude Include="State7.h" />
