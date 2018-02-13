@@ -4,7 +4,7 @@
 
 class State
 {
-public
+public:
 	State();
 	virtual ~State();
 	void print() const;

@@ -1,11 +1,11 @@
+#include "State2.h"
 #include "State0.h"
 
-
-State0::~State0()
+State2::~State2()
 {
 }
 
-bool State0::transition(Automate& automate, Symbole* symbole)
+bool State2::transition(Automate& automate, Symbole* symbole)
 {
 	switch (*symbole)
 	{
@@ -16,7 +16,7 @@ bool State0::transition(Automate& automate, Symbole* symbole)
 		automate.decalage(symbole, new State2);
 		break;
 	case EXPR:
-		automate.decalage(symbole, new State1);
+		automate.decalage(symbole, new State6);
 		break;
 	default:
 		automate.decalage(symbole, new StateError);

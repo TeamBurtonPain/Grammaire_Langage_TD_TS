@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-enum Identificateurs { OPENPAR, CLOSEPAR, PLUS, MULT, INT, FIN, ERREUR, EXPR };
+enum Identificateurs { OPENPAR = 0, CLOSEPAR, PLUS, MULT, INT, FIN, ERREUR, EXPR };
 
 const string Etiquettes[] = { "OPENPAR", "CLOSEPAR", "PLUS", "MULT", "INT", "FIN", "ERREUR", "EXPRESSION" };
 
