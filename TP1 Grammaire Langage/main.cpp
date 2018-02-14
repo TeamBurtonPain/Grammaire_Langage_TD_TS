@@ -16,8 +16,8 @@ int main(void) {
 		   s = l.Consulter();
 		   s->Affiche();
 		   cout << endl;
-		   bool continuer = true;
-		   while (continuer) {
+		   
+		   while (bool continuer = true) {
 			   continuer = automate.move(s);
 		   }
 		   l.Avancer();

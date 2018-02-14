@@ -5,9 +5,9 @@
 #include <map>
 using namespace std;
 
-enum Identificateurs { OPENPAR = 0, CLOSEPAR, PLUS, MULT, INT, FIN, ERREUR, EXPR };
+enum Identificateurs { OPENPAR = 0, CLOSEPAR, PLUS, SUB, MULT, DIV, INT, FIN, ERREUR, EXPR };
 
-const string Etiquettes[] = {"OPENPAR", "CLOSEPAR", "PLUS", "MULT", "INT", "FIN", "ERREUR", "EXPRESSION"};
+const string Etiquettes[] = {"OPENPAR", "CLOSEPAR", "PLUS", "SUB", "MULT", "DIV", "INT", "FIN", "ERREUR", "EXPRESSION"};
 
 class Symbole
 {
@@ -65,6 +65,15 @@ public :
 	}
 };
 
+class ExprMoins : public Expr
+{
+public:
+	ExprMoins(Expr * s1, Expr * s2)
+	{
+		valeur = s1->eval() - s2->eval();
+	}
+};
+
 class ExprMult : public Expr
 {
 public:
@@ -73,6 +82,15 @@ public:
 		valeur = s1->eval() * s2->eval();
 	}
 
+};
+
+class ExprDiv : public Expr
+{
+public:
+	ExprDiv(Expr * s1, Expr * s2)
+	{
+		valeur = s1->eval() / s2->eval();
+	}
 };
 
 class ExprPar : public Expr

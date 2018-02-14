@@ -20,7 +20,7 @@ bool State1::transition(Automate & automate, Symbole * symbole)
 		automate.accepter();
 		break;
 	default:
-		automate.decalage(symbole, new StateError);
+		cout << "Symbole ignoré : " << Etiquettes[*symbole] << endl;
 	}
 	return false;
 }

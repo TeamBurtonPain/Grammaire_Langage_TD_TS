@@ -20,8 +20,11 @@ bool State2::transition(Automate& automate, Symbole* symbole)
 	case EXPR:
 		automate.decalage(symbole, new State6);
 		break;
-	default:
+	case FIN:
 		automate.decalage(symbole, new StateError);
+		break;
+	default:
+		cout << "Symbole ignoré : " << Etiquettes[*symbole] << endl;
 
 	}
 	return false;

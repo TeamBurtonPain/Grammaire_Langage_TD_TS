@@ -25,6 +25,14 @@ Symbole * Lexer::Consulter() {
                tampon = new Symbole(PLUS);
                tete++;
                break;
+			case '-':
+				tampon = new Symbole(SUB);
+				tete++;
+				break;
+			case '/':
+				tampon = new Symbole(DIV);
+				tete++;
+				break;
             default:
                if (flux[tete]<='9' && flux[tete]>='0') {
                   int resultat = flux[tete]-'0';

@@ -25,8 +25,9 @@ bool State7::transition(Automate & automate, Symbole * symbole)
 	case MULT:
 		automate.decalage(symbole, new State5);
 		break;
+
 	default:
-		automate.decalage(symbole, new StateError);
+		cout << "Symbole ignoré : " << Etiquettes[*symbole] << endl;
 	}
 	return false;
 }
