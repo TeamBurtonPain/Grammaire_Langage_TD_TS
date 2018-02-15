@@ -5,9 +5,11 @@
 #include <map>
 using namespace std;
 
-enum Identificateurs { OPENPAR = 0, CLOSEPAR, PLUS, SUB, MULT, DIV, REEL, FIN, ERREUR, EXPR };
+using Table_valeur = map<string, double>;
 
-const string Etiquettes[] = {"OPENPAR", "CLOSEPAR", "PLUS", "SUB", "MULT", "DIV", "REEL", "FIN", "ERREUR", "EXPRESSION"};
+enum Identificateurs { OPENPAR = 0, CLOSEPAR, PLUS, SUB, MULT, DIV, REEL, FIN, ERREUR, EXPR, VARIABLE };
+
+const string Etiquettes[] = {"OPENPAR", "CLOSEPAR", "PLUS", "SUB", "MULT", "DIV", "REEL", "FIN", "ERREUR", "EXPRESSION", "VARIABLE"};
 
 class Symbole
 {
@@ -34,7 +36,7 @@ public:
 	{
 	}
 
-	~Reel()
+	virtual ~Reel()
 	{
 	}
 	virtual double eval() { return valeur; }
@@ -43,10 +45,22 @@ protected:
 	double valeur;
 };
 
+class Variable : public Symbole
+{
+public:
+	Variable(string n) : Symbole(VARIABLE), name(n){}
+	virtual ~Variable(){}
+
+	double eval(const Table_valeur & t) { return t.at(name); }
+	void Affiche();
+protected:
+	string name;
+};
+
 class Expr : public Symbole
 {
 public:
-	Expr(double val) : Symbole(EXPR), valeur(val){}
+	Expr(const double val) : Symbole(EXPR), valeur(val){}
 	Expr() : Symbole(EXPR){}
 	virtual ~Expr(){}
 

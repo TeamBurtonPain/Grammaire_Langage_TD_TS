@@ -36,8 +36,27 @@ public:
 
 	void abort() { termine = true; }
 
+	const Table_valeur & getVariables()const { return variables; }
+
+	/// <summary>
+	/// Add a variable to the table of values
+	/// </summary>
+	/// <param name="name">The name of the variable</param>
+	/// <param name="val">The value of the variable</param>
+	/// <returns>true if a previous value has been erased, else false</returns>
+	bool addVariable(string name, double val)
+	{
+		bool ret = true;
+		if(variables.find(name) == variables.end())
+		{
+			ret = false;
+		}
+		variables[name] = val;
+		return ret;
+	}
 protected:
 	deque<Symbole* > symbol_stack;
 	deque<State* > state_stack;
+	Table_valeur variables;
 	bool termine;
 };

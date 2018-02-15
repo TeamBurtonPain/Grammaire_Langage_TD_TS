@@ -2,6 +2,7 @@
 
 
 #include <string>
+#include <sstream>
 #include "symbole.h"
 using namespace std;
 

@@ -1,5 +1,6 @@
 #include "lexer.h"
 
+
 Symbole * Lexer::Consulter() {
    if (!tampon) {
 
@@ -54,6 +55,21 @@ Symbole * Lexer::Consulter() {
                   tete = tete+i;
                   tampon = new Reel(resultat);
                }
+			   else if((flux[tete] <= 'Z' && flux[tete] >= 'A') || (flux[tete] <= 'z' && flux[tete] >= 'a'))
+			   {
+				   stringstream ss;
+				   int i = 0;
+				   while((flux[tete+i] <= 'Z' && flux[tete + i] >= 'A') || (flux[tete + i] <= 'z' && flux[tete + i] >= 'a'))
+				   {
+					   ss << flux[tete + i];
+					   ++i;
+				   }
+				   tete += i;
+
+				   string name = ss.str();
+				   tampon = new Variable(name);
+
+			   }
                else {
                   tampon = new Symbole(ERREUR);
                }

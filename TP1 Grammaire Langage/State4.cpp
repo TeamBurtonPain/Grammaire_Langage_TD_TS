@@ -3,6 +3,7 @@
 #include "State3.h"
 #include "State7.h"
 #include "StateError.h"
+#include "State14.h"
 
 
 State4::~State4()
@@ -14,6 +15,9 @@ bool State4::transition(Automate & automate, Symbole * symbole)
 	switch (*symbole) {
 	case REEL:
 		automate.decalage(symbole, new State3);
+		break;
+	case VARIABLE:
+		automate.decalage(symbole, new State14);
 		break;
 	case OPENPAR:
 		automate.decalage(symbole, new State2);

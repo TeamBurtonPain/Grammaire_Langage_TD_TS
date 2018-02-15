@@ -125,6 +125,7 @@
     <ClCompile Include="State11.cpp" />
     <ClCompile Include="State12.cpp" />
     <ClCompile Include="State13.cpp" />
+    <ClCompile Include="State14.cpp" />
     <ClCompile Include="State2.cpp" />
     <ClCompile Include="State3.cpp" />
     <ClCompile Include="State4.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="State11.h" />
     <ClInclude Include="State12.h" />
     <ClInclude Include="State13.h" />
+    <ClInclude Include="State14.h" />
     <ClInclude Include="State2.h" />
     <ClInclude Include="State3.h" />
     <ClInclude Include="State4.h" />

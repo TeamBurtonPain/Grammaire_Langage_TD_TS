@@ -11,6 +11,8 @@ int main(void) {
 	   Lexer l(chaine);
 	   Automate automate;
 
+	   automate.addVariable("a", 2);
+
 	   Symbole * s;
 	   while (!automate) {
 		   s = l.Consulter();

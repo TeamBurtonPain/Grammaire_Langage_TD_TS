@@ -10,3 +10,7 @@ void Reel::Affiche() {
    cout<<"("<<valeur<<")";
 }
 
+void Variable::Affiche() {
+	Symbole::Affiche();
+	cout << "(" << name << ")";
+}
