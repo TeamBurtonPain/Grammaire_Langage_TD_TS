@@ -1,31 +1,28 @@
-#include "State8.h"
-#include "StateError.h"
+#include "State13.h"
+#include <iostream>
 
-State8::~State8()
+State13::~State13()
 {
 }
 
-bool State8::transition(Automate& automate, Symbole* symbole)
+bool State13::transition(Automate& automate, Symbole* symbole)
 {
-	switch (*symbole)
-	{
+	switch (*symbole) {
 	case PLUS:
-	case MULT:
-	case SUB:
-	case DIV:
 	case CLOSEPAR:
+	case SUB:
+	case MULT:
+	case DIV:
 	case FIN:
 	{
 		Expr * s1 = (Expr *)automate.popSymbole();
 		automate.popAndDestroySymbole();
 		Expr * s2 = (Expr *)automate.popSymbole();
-		automate.reduction(3, new ExprMult(s2, s1));
+		automate.reduction(3, new ExprDiv(s2, s1));
 		return true;
-		break;
 	}
 	default:
 		cout << "Symbole ignoré : " << Etiquettes[*symbole] << endl;
-
 	}
 	return false;
 }

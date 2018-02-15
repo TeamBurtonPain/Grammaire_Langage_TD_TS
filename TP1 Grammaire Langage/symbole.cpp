@@ -5,7 +5,7 @@ void Symbole::Affiche() {
    cout<<Etiquettes[ident];
 }
 
-void Entier::Affiche() {
+void Reel::Affiche() {
    Symbole::Affiche();
    cout<<"("<<valeur<<")";
 }

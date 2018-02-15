@@ -16,9 +16,11 @@ bool State9::transition(Automate & automate, Symbole * symbole)
 {
 	switch (*symbole) {
 	case PLUS:
+	case MULT:
+	case SUB:
+	case DIV:
 	case CLOSEPAR:
 	case FIN:
-	case MULT:
 	{
 		automate.popAndDestroySymbole();
 		Expr * s1 = (Expr *) automate.popSymbole();

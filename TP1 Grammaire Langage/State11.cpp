@@ -1,16 +1,17 @@
-#include "State2.h"
+#include "State11.h"
 #include "State3.h"
-#include "State6.h"
+#include "State2.h"
 #include "StateError.h"
+#include "State13.h"
 
-State2::~State2()
+
+State11::~State11()
 {
 }
 
-bool State2::transition(Automate& automate, Symbole* symbole)
+bool State11::transition(Automate& automate, Symbole* symbole)
 {
-	switch (*symbole)
-	{
+	switch (*symbole) {
 	case REEL:
 		automate.decalage(symbole, new State3);
 		break;
@@ -18,14 +19,13 @@ bool State2::transition(Automate& automate, Symbole* symbole)
 		automate.decalage(symbole, new State2);
 		break;
 	case EXPR:
-		automate.decalage(symbole, new State6);
+		automate.decalage(symbole, new State13);
 		break;
 	case FIN:
 		automate.decalage(symbole, new StateError);
 		break;
 	default:
 		cout << "Symbole ignoré : " << Etiquettes[*symbole] << endl;
-
 	}
 	return false;
 }

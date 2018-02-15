@@ -5,9 +5,9 @@
 #include <map>
 using namespace std;
 
-enum Identificateurs { OPENPAR = 0, CLOSEPAR, PLUS, SUB, MULT, DIV, INT, FIN, ERREUR, EXPR };
+enum Identificateurs { OPENPAR = 0, CLOSEPAR, PLUS, SUB, MULT, DIV, REEL, FIN, ERREUR, EXPR };
 
-const string Etiquettes[] = {"OPENPAR", "CLOSEPAR", "PLUS", "SUB", "MULT", "DIV", "INT", "FIN", "ERREUR", "EXPRESSION"};
+const string Etiquettes[] = {"OPENPAR", "CLOSEPAR", "PLUS", "SUB", "MULT", "DIV", "REEL", "FIN", "ERREUR", "EXPRESSION"};
 
 class Symbole
 {
@@ -27,33 +27,33 @@ protected:
 	int ident;
 };
 
-class Entier : public Symbole
+class Reel : public Symbole
 {
 public:
-	Entier(int v) : Symbole(INT), valeur(v)
+	Reel(double v) : Symbole(REEL), valeur(v)
 	{
 	}
 
-	~Entier()
+	~Reel()
 	{
 	}
-	virtual int eval() { return valeur; }
+	virtual double eval() { return valeur; }
 	virtual void Affiche();
 protected:
-	int valeur;
+	double valeur;
 };
 
 class Expr : public Symbole
 {
 public:
-	Expr(int val) : Symbole(EXPR), valeur(val){}
+	Expr(double val) : Symbole(EXPR), valeur(val){}
 	Expr() : Symbole(EXPR){}
 	virtual ~Expr(){}
 
-	virtual int eval() { return valeur; }
+	virtual double eval() { return valeur; }
 
 protected:
-	int valeur;
+	double valeur;
 };
 
 class ExprPlus : public Expr

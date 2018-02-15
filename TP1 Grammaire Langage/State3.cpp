@@ -11,13 +11,14 @@ bool State3::transition(Automate& automate, Symbole* symbole)
 	{
 	case PLUS:
 	case MULT:
+	case SUB:
+	case DIV:
 	case CLOSEPAR:
 	case FIN:
 		{
-			Entier * s = (Entier *) automate.popSymbole();
+			Reel * s = (Reel *) automate.popSymbole();
 			automate.reduction(1, new Expr(s->eval()));
 			return true;
-			break;
 		}
 	default:
 		cout << "Symbole ignoré : " << Etiquettes[*symbole] << endl;

@@ -12,7 +12,7 @@ bool State0::transition(Automate& automate, Symbole* symbole)
 {
 	switch (*symbole)
 	{
-	case INT:
+	case REEL:
 		automate.decalage(symbole, new State3);
 		break;
 	case OPENPAR:
