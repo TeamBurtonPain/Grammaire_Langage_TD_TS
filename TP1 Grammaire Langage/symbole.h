@@ -3,13 +3,14 @@
 
 #include <string>
 #include <map>
+#include <iostream>
 using namespace std;
 
 using Table_valeur = map<string, double>;
 
-enum Identificateurs { OPENPAR = 0, CLOSEPAR, PLUS, SUB, MULT, DIV, REEL, FIN, ERREUR, EXPR, VARIABLE };
+enum Identificateurs { OPENPAR = 0, CLOSEPAR, PLUS, SUB, MULT, DIV, REEL, FIN, ERREUR, EXPR, VARIABLE, EQUAL };
 
-const string Etiquettes[] = {"OPENPAR", "CLOSEPAR", "PLUS", "SUB", "MULT", "DIV", "REEL", "FIN", "ERREUR", "EXPRESSION", "VARIABLE"};
+const string Etiquettes[] = {"OPENPAR", "CLOSEPAR", "PLUS", "SUB", "MULT", "DIV", "REEL", "FIN", "ERREUR", "EXPRESSION", "VARIABLE", "EQUAL"};
 
 class Symbole
 {
@@ -51,7 +52,15 @@ public:
 	Variable(string n) : Symbole(VARIABLE), name(n){}
 	virtual ~Variable(){}
 
-	double eval(const Table_valeur & t) { return t.at(name); }
+	double eval(const Table_valeur & t)
+	{
+		if(t.find(name) == t.end())
+		{
+			cout << "Variable named " << name << " undefined. Assuming value is 0." << endl;
+			return 0;
+		}
+		return t.at(name);
+	}
 	void Affiche();
 protected:
 	string name;
@@ -111,6 +120,17 @@ class ExprPar : public Expr
 {
 public:
 	ExprPar(Expr * s1)
+	{
+		valeur = s1->eval();
+	}
+
+};
+
+
+class ExprEqu : public Expr
+{
+public:
+	ExprEqu(Variable * var, Expr * s1)
 	{
 		valeur = s1->eval();
 	}
