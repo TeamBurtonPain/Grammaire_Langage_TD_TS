@@ -5,6 +5,16 @@ using namespace std;
 
 Automate::~Automate()
 {
+	while(!state_stack.empty())
+	{
+		delete(state_stack.back());
+		state_stack.pop_back();
+	}
+	while (!symbol_stack.empty())
+	{
+		delete(symbol_stack.back());
+		symbol_stack.pop_back();
+	}
 }
 
 Symbole* Automate::popSymbole()

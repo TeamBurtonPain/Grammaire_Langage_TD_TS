@@ -20,8 +20,9 @@ bool State7::transition(Automate & automate, Symbole * symbole)
 			automate.popAndDestroySymbole();
 			Expr * s2 = (Expr *)automate.popSymbole();
 			automate.reduction(3, new ExprPlus(s2, s1));
+			delete(s1);
+			delete(s2);
 			return true;
-			break;
 		}
 	case MULT:
 		automate.decalage(symbole, new State5);

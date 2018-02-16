@@ -18,6 +18,7 @@ bool State14::transition(Automate& automate, Symbole* symbole)
 	{
 		Variable * s = (Variable *)automate.popSymbole();
 		automate.reduction(1, new Expr(s->eval(automate.getVariables())));
+		delete(s);
 		return true;
 	}
 	default:

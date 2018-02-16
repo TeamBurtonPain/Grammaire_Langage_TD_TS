@@ -18,6 +18,7 @@ bool State3::transition(Automate& automate, Symbole* symbole)
 		{
 			Reel * s = (Reel *) automate.popSymbole();
 			automate.reduction(1, new Expr(s->eval()));
+			delete(s);
 			return true;
 		}
 	default:

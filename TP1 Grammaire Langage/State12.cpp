@@ -23,6 +23,8 @@ bool State12::transition(Automate& automate, Symbole* symbole)
 		automate.popAndDestroySymbole();
 		Expr * s2 = (Expr *)automate.popSymbole();
 		automate.reduction(3, new ExprMoins(s2, s1));
+		delete(s1);
+		delete(s2);
 		return true;
 	}
 	case MULT:

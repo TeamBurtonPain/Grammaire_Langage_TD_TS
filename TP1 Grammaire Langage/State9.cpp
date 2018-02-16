@@ -26,8 +26,8 @@ bool State9::transition(Automate & automate, Symbole * symbole)
 		Expr * s1 = (Expr *) automate.popSymbole();
 		automate.popAndDestroySymbole();
 		automate.reduction(3, new ExprPar(s1));
+		delete(s1);
 		return true;
-		break;
 	}
 	default:
 		cout << "Symbole ignoré : " << Etiquettes[*symbole] << endl;
